@@ -1,0 +1,778 @@
+
+> haochii@1.0.0 start /app/aggarwal-node-api/Aggarwal-node-api
+> nodemon --exec babel-node -- ./server.js
+
+[33m[nodemon] 1.12.5[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `babel-node ./server.js`[39m
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! haochii@1.0.0 start: `nodemon --exec babel-node -- ./server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the haochii@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2017-12-06T20_42_45_162Z-debug.log
+{
+  "level": "info",
+  "message": "log files with rotating feature are located on /app/logs"
+}
+{
+  "level": "info",
+  "message": "Static image files are located on /app/aggarwal-images/images/"
+}
+(node:16575) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+{
+  "level": "info",
+  "message": "Server is listening on port: 8080"
+}
+{
+  "level": "info",
+  "message": "mongo db connection successful .. on mongodb://localhost:27017/agarwal-db"
+}
+[0;36mMongoose:[0m franchisee.ensureIndex({ franchiseeId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ customerId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customerRequest.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m order.ensureIndex({ orderId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m franchisee.ensureIndex({ [32m'authentication.authId'[39m: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+
+> haochii@1.0.0 start /app/aggarwal-node-api/Aggarwal-node-api
+> nodemon --exec babel-node -- ./server.js
+
+[33m[nodemon] 1.12.5[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `babel-node ./server.js`[39m
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! haochii@1.0.0 start: `nodemon --exec babel-node -- ./server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the haochii@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2017-12-06T20_56_43_658Z-debug.log
+{
+  "level": "info",
+  "message": "log files with rotating feature are located on /app/logs"
+}
+{
+  "level": "info",
+  "message": "Static image files are located on /app/aggarwal-images/images/"
+}
+(node:17120) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+{
+  "level": "info",
+  "message": "Server is listening on port: 8080"
+}
+{
+  "level": "info",
+  "message": "mongo db connection successful .. on mongodb://localhost:21215/agarwal-db"
+}
+[0;36mMongoose:[0m franchisee.ensureIndex({ franchiseeId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ customerId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customerRequest.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m order.ensureIndex({ orderId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m franchisee.ensureIndex({ [32m'authentication.authId'[39m: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/ HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/swagger-ui.css HTTP/1.1\" 304 - \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/swagger-ui-bundle.js HTTP/1.1\" 304 - \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/swagger-ui-standalone-preset.js HTTP/1.1\" 304 - \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /swagger.json HTTP/1.1\" 304 - \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:23.22.16.221 - - \"GET /swagger.json HTTP/1.1\" 200 22432 \"-\" \"Apache-HttpClient/4.5.1 (Java/1.8.0_141)"
+}
+{
+  "date": "Wed Dec 06 2017 21:03:51 GMT+0000 (UTC)",
+  "process": {
+    "pid": 17120,
+    "uid": 0,
+    "gid": 0,
+    "cwd": "/app/aggarwal-node-api/Aggarwal-node-api",
+    "execPath": "/usr/bin/node",
+    "version": "v8.9.1",
+    "argv": [
+      "node",
+      "/app/aggarwal-node-api/Aggarwal-node-api/server.js"
+    ],
+    "memoryUsage": {
+      "rss": 75087872,
+      "heapTotal": 41381888,
+      "heapUsed": 34994592,
+      "external": 17842824
+    }
+  },
+  "os": {
+    "loadavg": [
+      0.0078125,
+      0.0068359375,
+      0
+    ],
+    "uptime": 95678
+  },
+  "trace": [
+    {
+      "column": 11,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongoose/lib/error/disconnected.js",
+      "function": "new DisconnectedError",
+      "line": 22,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 31,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js",
+      "function": null,
+      "line": 64,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "events.js",
+      "function": "emitOne",
+      "line": 121,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "events.js",
+      "function": "Server.emit",
+      "line": 211,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/topologies/server.js",
+      "function": null,
+      "line": 327,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 13,
+      "file": "events.js",
+      "function": "emitOne",
+      "line": 116,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "events.js",
+      "function": "Pool.emit",
+      "line": 211,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 16,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/connection/pool.js",
+      "function": null,
+      "line": 317,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 13,
+      "file": "events.js",
+      "function": "emitTwo",
+      "line": 126,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "events.js",
+      "function": "Connection.emit",
+      "line": 214,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 49,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/connection/connection.js",
+      "function": null,
+      "line": 187,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 30,
+      "file": "events.js",
+      "function": "Object.onceWrapper",
+      "line": 315,
+      "method": "onceWrapper",
+      "native": false
+    },
+    {
+      "column": 13,
+      "file": "events.js",
+      "function": "emitOne",
+      "line": 116,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "events.js",
+      "function": "Socket.emit",
+      "line": 211,
+      "method": "emit",
+      "native": false
+    },
+    {
+      "column": 8,
+      "file": "internal/streams/destroy.js",
+      "function": "emitErrorNT",
+      "line": 64,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 11,
+      "file": "internal/process/next_tick.js",
+      "function": "_combinedTickCallback",
+      "line": 138,
+      "method": null,
+      "native": false
+    }
+  ],
+  "stack": [
+    "DisconnectedError: Ran out of retries trying to reconnect to \"localhost:21215\". Try setting `server.reconnectTries` and `server.reconnectInterval` to something higher.",
+    "    at new DisconnectedError (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongoose/lib/error/disconnected.js:22:11)",
+    "    at Server.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:64:31)",
+    "    at emitOne (events.js:121:20)",
+    "    at Server.emit (events.js:211:7)",
+    "    at Pool.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/topologies/server.js:327:16)",
+    "    at emitOne (events.js:116:13)",
+    "    at Pool.emit (events.js:211:7)",
+    "    at Connection.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/connection/pool.js:317:16)",
+    "    at emitTwo (events.js:126:13)",
+    "    at Connection.emit (events.js:214:7)",
+    "    at Socket.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/connection/connection.js:187:49)",
+    "    at Object.onceWrapper (events.js:315:30)",
+    "    at emitOne (events.js:116:13)",
+    "    at Socket.emit (events.js:211:7)",
+    "    at emitErrorNT (internal/streams/destroy.js:64:8)",
+    "    at _combinedTickCallback (internal/process/next_tick.js:138:11)"
+  ],
+  "level": "error",
+  "message": "uncaughtException: Ran out of retries trying to reconnect to \"localhost:21215\". Try setting `server.reconnectTries` and `server.reconnectInterval` to something higher."
+}
+{
+  "level": "info",
+  "message": "['uncaughtException'] DisconnectedError: Ran out of retries trying to reconnect to \"localhost:21215\". Try setting `server.reconnectTries` and `server.reconnectInterval` to something higher.\n    at new DisconnectedError (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongoose/lib/error/disconnected.js:22:11)\n    at Server.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongoose/lib/drivers/node-mongodb-native/connection.js:64:31)\n    at emitOne (events.js:121:20)\n    at Server.emit (events.js:211:7)\n    at Pool.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/topologies/server.js:327:16)\n    at emitOne (events.js:116:13)\n    at Pool.emit (events.js:211:7)\n    at Connection.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/connection/pool.js:317:16)\n    at emitTwo (events.js:126:13)\n    at Connection.emit (events.js:214:7)\n    at Socket.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/mongodb-core/lib/connection/connection.js:187:49)\n    at Object.onceWrapper (events.js:315:30)\n    at emitOne (events.js:116:13)\n    at Socket.emit (events.js:211:7)\n    at emitErrorNT (internal/streams/destroy.js:64:8)\n    at _combinedTickCallback (internal/process/next_tick.js:138:11)"
+}
+{
+  "level": "info",
+  "message": "::ffff:198.12.150.118 - - \"GET /w00tw00t.at.ISC.SANS.DFind:) HTTP/1.1\" 404 167 \"-\" \"-"
+}
+{
+  "level": "info",
+  "message": "::ffff:66.80.28.126 - - \"GET / HTTP/1.1\" 404 139 \"-\" \"python-requests/2.9.1"
+}
+{
+  "level": "info",
+  "message": "::ffff:66.80.28.126 - - \"GET / HTTP/1.1\" 404 139 \"-\" \"python-requests/2.9.1"
+}
+{
+  "level": "info",
+  "message": "::ffff:58.220.41.13 - - \"GET /manager/html HTTP/1.1\" 404 151 \"-\" \"Mozilla/3.0 (compatible; Indy Library)"
+}
+{
+  "level": "info",
+  "message": "::ffff:164.52.7.130 - - \"GET / HTTP/1.1\" 404 139 \"-\" \"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:52.0) Gecko/20100101 Firefox/52.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs HTTP/1.1\" 301 175 \"-\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/ HTTP/1.1\" 200 3595 \"-\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/swagger-ui.css HTTP/1.1\" 200 26383 \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/favicon-16x16.png HTTP/1.1\" 200 445 \"-\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/swagger-ui-standalone-preset.js HTTP/1.1\" 200 280846 \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/swagger-ui-bundle.js HTTP/1.1\" 200 1207386 \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /swagger.json HTTP/1.1\" 200 22432 \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:23.22.16.221 - - \"GET /swagger.json HTTP/1.1\" 200 22432 \"-\" \"Apache-HttpClient/4.5.1 (Java/1.8.0_141)"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/favicon-16x16.png HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /api-docs/favicon-16x16.png HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.158.112 - - \"GET /swagger.json HTTP/1.1\" 304 - \"http://35.200.213.151:8080/api-docs/\" \"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:54.0) Gecko/20100101 Firefox/54.0"
+}
+
+> haochii@1.0.0 start /app/aggarwal-node-api/Aggarwal-node-api
+> nodemon --exec babel-node -- ./server.js
+
+[33m[nodemon] 1.12.5[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `babel-node ./server.js`[39m
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! haochii@1.0.0 start: `nodemon --exec babel-node -- ./server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the haochii@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2017-12-08T16_33_02_913Z-debug.log
+{
+  "level": "info",
+  "message": "log files with rotating feature are located on /app/logs"
+}
+{
+  "level": "info",
+  "message": "Static image files are located on /app/aggarwal-images/images/"
+}
+(node:7825) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+{
+  "level": "info",
+  "message": "Server is listening on port: 8080"
+}
+{
+  "level": "info",
+  "message": "mongo db connection successful .. on mongodb://localhost:21215/agarwal-db"
+}
+[0;36mMongoose:[0m franchisee.ensureIndex({ franchiseeId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ customerId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customerRequest.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m order.ensureIndex({ orderId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m franchisee.ensureIndex({ [32m'authentication.authId'[39m: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+
+> haochii@1.0.0 start /app/aggarwal-node-api/Aggarwal-node-api
+> nodemon --exec babel-node -- ./server.js
+
+[33m[nodemon] 1.12.5[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `babel-node ./server.js`[39m
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! haochii@1.0.0 start: `nodemon --exec babel-node -- ./server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the haochii@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2017-12-08T17_34_33_303Z-debug.log
+{
+  "level": "info",
+  "message": "log files with rotating feature are located on /app/logs"
+}
+{
+  "level": "info",
+  "message": "Static image files are located on /app/aggarwal-images/images/"
+}
+(node:8638) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+{
+  "level": "info",
+  "message": "Server is listening on port: 8080"
+}
+{
+  "level": "info",
+  "message": "mongo db connection successful .. on mongodb://localhost:21215/agarwal-db"
+}
+[0;36mMongoose:[0m franchisee.ensureIndex({ franchiseeId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ customerId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customerRequest.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m order.ensureIndex({ orderId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m franchisee.ensureIndex({ [32m'authentication.authId'[39m: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /api-docs/ HTTP/1.1\" 200 3595 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /api-docs/swagger-ui.css HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /api-docs/swagger-ui-bundle.js HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /api-docs/swagger-ui-standalone-preset.js HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /swagger.json HTTP/1.1\" 200 13822 \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /api-docs/favicon-32x32.png HTTP/1.1\" 200 1141 \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:23.22.16.221 - - \"GET /swagger.json HTTP/1.1\" 200 13822 \"-\" \"Apache-HttpClient/4.5.1 (Java/1.8.0_141)"
+}
+{
+  "level": "info",
+  "message": "::ffff:171.60.240.78 - - \"GET /api-docs/favicon-16x16.png HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:139.162.111.98 - - \"GET / HTTP/1.1\" 404 139 \"-\" \"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:141.212.122.81 - - \"GET / HTTP/1.1\" 404 139 \"-\" \"Mozilla/5.0 zgrab/0.x"
+}
+{
+  "level": "info",
+  "message": "::ffff:46.17.46.77 - - \"GET /a2billing/agent/Public/index.php HTTP/1.1\" 404 171 \"-\" \"curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.27.1 zlib/1.2.3 libidn/1.18 libssh2/1.4.2"
+}
+{
+  "level": "info",
+  "message": "::ffff:46.17.46.77 - - \"GET /recordings/index.php HTTP/1.1\" 404 159 \"-\" \"curl/7.19.7 (x86_64-redhat-linux-gnu) libcurl/7.19.7 NSS/3.27.1 zlib/1.2.3 libidn/1.18 libssh2/1.4.2"
+}
+{
+  "level": "info",
+  "message": "::ffff:182.48.105.210 - - \"GET / HTTP/1.0\" 404 139 \"http://35.200.176.109:8080/\" \"Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0)"
+}
+{
+  "level": "info",
+  "message": "::ffff:5.45.101.207 - - \"GET / HTTP/1.0\" 404 139 \"-\" \"-"
+}
+{
+  "level": "info",
+  "message": "::ffff:5.45.101.207 - - \"POST /login/ HTTP/1.1\" 404 146 \"http://109.176.200.35.bc.googleusercontent.com:8080/login/\" \"ISPConfig"
+}
+{
+  "level": "info",
+  "message": "::ffff:5.45.101.207 - - \"POST /login/ HTTP/1.1\" 404 146 \"http://35.200.176.109:8080/login/\" \"ISPConfig"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET / HTTP/1.1\" 404 139 \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET /favicon.ico HTTP/1.1\" 404 150 \"http://35.200.176.109:8080/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET /api-docs/ HTTP/1.1\" 304 - \"-\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET /api-docs/swagger-ui-bundle.js HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET /api-docs/swagger-ui.css HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET /api-docs/swagger-ui-standalone-preset.js HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:122.164.156.158 - - \"GET /swagger.json HTTP/1.1\" 304 - \"http://35.200.176.109:8080/api-docs/\" \"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/62.0.3202.75 Safari/537.36"
+}
+{
+  "level": "info",
+  "message": "::ffff:23.22.16.221 - - \"GET /swagger.json HTTP/1.1\" 200 13822 \"-\" \"Apache-HttpClient/4.5.1 (Java/1.8.0_141)"
+}
+
+> haochii@1.0.0 start /app/aggarwal-node-api/Aggarwal-node-api
+> nodemon --exec babel-node -- ./server.js
+
+[33m[nodemon] 1.12.5[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching: *.*[39m
+[32m[nodemon] starting `babel-node ./server.js`[39m
+events.js:183
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: EBADF: bad file descriptor, read
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! haochii@1.0.0 start: `nodemon --exec babel-node -- ./server.js`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the haochii@1.0.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/aggarwaldailyneedsservice/.npm/_logs/2017-12-12T19_26_57_032Z-debug.log
+{
+  "level": "info",
+  "message": "log files with rotating feature are located on /app/logs/"
+}
+{
+  "level": "info",
+  "message": "Static image files are located on /app/aggarwal-images/images/"
+}
+(node:14084) DeprecationWarning: `open()` is deprecated in mongoose >= 4.11.0, use `openUri()` instead, or set the `useMongoClient` option if using `connect()` or `createConnection()`. See http://mongoosejs.com/docs/connections.html#use-mongo-client
+{
+  "date": "Tue Dec 12 2017 19:26:58 GMT+0000 (UTC)",
+  "process": {
+    "pid": 14084,
+    "uid": 1001,
+    "gid": 1002,
+    "cwd": "/app/aggarwal-node-api/Aggarwal-node-api",
+    "execPath": "/usr/bin/node",
+    "version": "v8.9.1",
+    "argv": [
+      "node",
+      "/app/aggarwal-node-api/Aggarwal-node-api/server.js"
+    ],
+    "memoryUsage": {
+      "rss": 100139008,
+      "heapTotal": 73809920,
+      "heapUsed": 45516824,
+      "external": 19342098
+    }
+  },
+  "os": {
+    "loadavg": [
+      0,
+      0,
+      0
+    ],
+    "uptime": 356677
+  },
+  "trace": [
+    {
+      "column": 11,
+      "file": "util.js",
+      "function": "Object._errnoException",
+      "line": 1024,
+      "method": "_errnoException",
+      "native": false
+    },
+    {
+      "column": 20,
+      "file": "util.js",
+      "function": "_exceptionWithHostPort",
+      "line": 1046,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 14,
+      "file": "net.js",
+      "function": "Server.setupListenHandle [as _listen2]",
+      "line": 1351,
+      "method": "setupListenHandle [as _listen2]",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "net.js",
+      "function": "listenInCluster",
+      "line": 1392,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "net.js",
+      "function": "Server.listen",
+      "line": 1476,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 24,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/express/lib/application.js",
+      "function": "Function.listen",
+      "line": 618,
+      "method": "listen",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/server.js",
+      "function": null,
+      "line": 57,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 30,
+      "file": "module.js",
+      "function": "Module._compile",
+      "line": 635,
+      "method": "_compile",
+      "native": false
+    },
+    {
+      "column": 5,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-register/lib/node.js",
+      "function": "loader",
+      "line": 144,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 7,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-register/lib/node.js",
+      "function": "Object.require.extensions.(anonymous function) [as .js]",
+      "line": 154,
+      "method": "js]",
+      "native": false
+    },
+    {
+      "column": 32,
+      "file": "module.js",
+      "function": "Module.load",
+      "line": 554,
+      "method": "load",
+      "native": false
+    },
+    {
+      "column": 12,
+      "file": "module.js",
+      "function": "tryModuleLoad",
+      "line": 497,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 3,
+      "file": "module.js",
+      "function": "Module._load",
+      "line": 489,
+      "method": "_load",
+      "native": false
+    },
+    {
+      "column": 10,
+      "file": "module.js",
+      "function": "Module.runMain",
+      "line": 676,
+      "method": "runMain",
+      "native": false
+    },
+    {
+      "column": 22,
+      "file": "/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-cli/lib/_babel-node.js",
+      "function": null,
+      "line": 154,
+      "method": null,
+      "native": false
+    },
+    {
+      "column": 30,
+      "file": "module.js",
+      "function": "Module._compile",
+      "line": 635,
+      "method": "_compile",
+      "native": false
+    }
+  ],
+  "stack": [
+    "Error: listen EADDRINUSE :::8080",
+    "    at Object._errnoException (util.js:1024:11)",
+    "    at _exceptionWithHostPort (util.js:1046:20)",
+    "    at Server.setupListenHandle [as _listen2] (net.js:1351:14)",
+    "    at listenInCluster (net.js:1392:12)",
+    "    at Server.listen (net.js:1476:7)",
+    "    at Function.listen (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/express/lib/application.js:618:24)",
+    "    at Object.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/server.js:57:5)",
+    "    at Module._compile (module.js:635:30)",
+    "    at loader (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-register/lib/node.js:144:5)",
+    "    at Object.require.extensions.(anonymous function) [as .js] (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-register/lib/node.js:154:7)",
+    "    at Module.load (module.js:554:32)",
+    "    at tryModuleLoad (module.js:497:12)",
+    "    at Function.Module._load (module.js:489:3)",
+    "    at Function.Module.runMain (module.js:676:10)",
+    "    at Object.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-cli/lib/_babel-node.js:154:22)",
+    "    at Module._compile (module.js:635:30)"
+  ],
+  "level": "error",
+  "message": "uncaughtException: listen EADDRINUSE :::8080"
+}
+{
+  "level": "info",
+  "message": "['uncaughtException'] Error: listen EADDRINUSE :::8080\n    at Object._errnoException (util.js:1024:11)\n    at _exceptionWithHostPort (util.js:1046:20)\n    at Server.setupListenHandle [as _listen2] (net.js:1351:14)\n    at listenInCluster (net.js:1392:12)\n    at Server.listen (net.js:1476:7)\n    at Function.listen (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/express/lib/application.js:618:24)\n    at Object.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/server.js:57:5)\n    at Module._compile (module.js:635:30)\n    at loader (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-register/lib/node.js:144:5)\n    at Object.require.extensions.(anonymous function) [as .js] (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-register/lib/node.js:154:7)\n    at Module.load (module.js:554:32)\n    at tryModuleLoad (module.js:497:12)\n    at Function.Module._load (module.js:489:3)\n    at Function.Module.runMain (module.js:676:10)\n    at Object.<anonymous> (/app/aggarwal-node-api/Aggarwal-node-api/node_modules/babel-cli/lib/_babel-node.js:154:22)\n    at Module._compile (module.js:635:30)"
+}
+{
+  "level": "info",
+  "message": "mongo db connection successful .. on mongodb://localhost:21215/agarwal-db"
+}
+[0;36mMongoose:[0m franchisee.ensureIndex({ franchiseeId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ customerId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customerRequest.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m order.ensureIndex({ orderId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m franchisee.ensureIndex({ [32m'authentication.authId'[39m: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
+[0;36mMongoose:[0m customer.ensureIndex({ emailId: [33m1[39m }, { unique: [33mtrue[39m, background: [33mtrue[39m })
