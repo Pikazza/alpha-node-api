@@ -1,4 +1,5 @@
 'use strict';
+
 const winston = require('winston');
 const Props = require('../Util/api-properties');
 const tsFormat = () => (new Date()).toISOString();

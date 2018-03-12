@@ -7,6 +7,8 @@ import jwt from 'express-jwt';
 import logger from './Config/Logger';
 import Props from'./Util/api-properties';
 import fs from 'fs';
+import db from './Config/DBConfig';
+import seqdb from './Config/sequelDB';
 
 
 const app = express();
@@ -25,6 +27,7 @@ router.use(cors());
 router.options('*', cors());
 
 require('./Routes/DashBoard')(router);
+require('./Routes/ScriptRoute')(router);
 require('./Exceptions/error-middleware')(router);
 
 
