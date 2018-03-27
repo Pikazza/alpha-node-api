@@ -13,6 +13,9 @@ module.exports = function(router){
 	router.post('/v1.0/script',
 		scriptController.post),
 
+	router.get('/v1.0/email/:scriptId',
+		scriptController.email),
+
 	router.put('/v1.0/script/:scriptId',
 		scriptController.put )
 

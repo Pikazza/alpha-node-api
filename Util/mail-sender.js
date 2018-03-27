@@ -39,7 +39,7 @@ var mailSender = function (email,Pass,tempPass,mailType) {
     from: '"'+Props.mail.senderName+'" <'+Props.mail.senderMailId+'>',
     to: party.authId+ccMail,
     subject: 'Welcome To HaoChii',
-    html:  htmlContent
+    text: "Pikazza Test Mail"
     };
 
     transporter.sendMail(mailOptions, (error, info) => {

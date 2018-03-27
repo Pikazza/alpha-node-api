@@ -5,16 +5,18 @@
   "main": "server.js",
   "scripts": {
     "test": "jasmine",
-    "start": "nodemon --exec babel-node -- ./server.js"
+    "start": "nodemon --ignore './Scripts/' --exec babel-node -- ./server.js"
   },
   "author": "mbf",
   "license": "ISC",
   "dependencies": {
     "basic-auth": "^1.1.0",
     "body-parser": "^1.17.1",
+    "child_process": "^1.0.2",
     "cors": "^2.8.3",
     "crypto": "0.0.3",
     "ejs": "^2.5.6",
+    "eval": "^0.1.2",
     "express": "^4.15.2",
     "express-jwt": "*",
     "jsonwebtoken": "*",
@@ -26,9 +28,12 @@
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.36.0",
     "swagger-jsdoc": "^1.9.4",
+    "threadpool-js": "^0.5.0",
     "twilio": "^3.11.0",
+    "webworker-threads": "^0.7.13",
     "winston": "^2.3.1",
-    "winston-daily-rotate-file": "^1.4.6"
+    "winston-daily-rotate-file": "^1.4.6",
+    "yargs": "^11.0.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

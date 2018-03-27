@@ -5,6 +5,8 @@ const path=require("path");
 const ejs = require('ejs');
 const fs = require('fs');
 const scriptService= require('../Services/ScriptService');
+const Utils = require('../Util/mail-sender')
+var nodemailer = require('nodemailer');
 
 exports.getAll = (req, res, next) => {
 
@@ -60,4 +62,19 @@ exports.put = (req, res, next) => {
             res.status(200).json(result);
             }
         });
+};
+
+exports.email = (req, res, next) => {
+
+    logger.info(" Email service is has  been called "+req.params.scriptId)
+
+    scriptService.email(req.params.scriptId, function (err , result){
+            if (err) {
+                next(err);
+            } 
+            else{
+            res.status(200).json(result);
+            }
+        });
+    //res.status(200).json("Pikazza");
 };

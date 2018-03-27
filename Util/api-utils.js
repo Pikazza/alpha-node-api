@@ -1,9 +1,9 @@
 'use strict';
 var crypto = require('crypto');
-var Props = require('../util/api-properties');
+var Props = require('../Util/api-properties');
 var salt = "pikazzasecretkeytoencryprtpassword".toString('base64');
-const logger = require('../config/logger');
-
+const logger = require('../Config/Logger');
+const fs = require('fs');
 module.exports.uploadImage = (newFileName,  base64Data, next) => {
 
     console.log("Uploading image starts..");
@@ -18,6 +18,21 @@ module.exports.uploadImage = (newFileName,  base64Data, next) => {
     logger.info("upload is completed "+path);
     return path
 
+};
+
+module.exports.saveFile = (newFileName, script , next) => {
+
+    console.log("Saving new files ..");
+    let path ="/home/admin/nodespace/alpha-node-api/Scripts/"+newFileName+".js";
+    /*fs.writeFile(path, script, function(err) {
+      if(err) {
+          return console.log(err);
+      }
+      console.log("The file was saved!");
+          return path
+  });*/
+  fs.writeFileSync(path, script);
+  return path;
 };
 
 module.exports.encyptAuthToken = (authToken) => { 
