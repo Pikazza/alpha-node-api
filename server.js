@@ -9,7 +9,7 @@ import Props from'./Util/api-properties';
 import fs from 'fs';
 import db from './Config/DBConfig';
 import seqdb from './Config/sequelDB';
-
+import notify from'./Scheduler/Notifier';
 
 const app = express();
 

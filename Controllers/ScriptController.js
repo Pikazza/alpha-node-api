@@ -78,3 +78,18 @@ exports.email = (req, res, next) => {
         });
     //res.status(200).json("Pikazza");
 };
+
+exports.emailAll = (req, res, next) => {
+
+    logger.info(" Email service is has  been called "+req.params.scriptId)
+
+    scriptService.emailAll( function (err , result){
+            if (err) {
+                next(err);
+            } 
+            else{
+            res.status(200).json(result);
+            }
+        });
+    //res.status(200).json("Pikazza");
+};

@@ -14,13 +14,13 @@ var transporter = nodemailer.createTransport({
     }
 });
 
-function mailSender(ccMail) {
+function mailSender(ccMail,body) {
 
     var mailOptions = {
     from: '"'+Props.mail.senderName+'" <'+Props.mail.senderMailId+'>',
     to: ccMail,
     subject: 'Welcome To Pikazza',
-    text: "Pikazza Test Mail"
+    text: body,
     };
 
     transporter.sendMail(mailOptions, (error, info) => {
@@ -31,4 +31,4 @@ function mailSender(ccMail) {
     });
 }
 
-mailSender(my.mail);
+mailSender(my.mail,my.text);

@@ -17,6 +17,9 @@ const Scripts = sequelize.define('scripts', {
   scriptText: {
     type: Sequelize.TEXT
   },
+  scriptType: {
+    type: Sequelize.TEXT
+  },
   createdAt: {
     type: Sequelize.DATE
   },

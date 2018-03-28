@@ -49,12 +49,12 @@ module.exports.getByScriptId = (scriptId, next) => {
 
 module.exports.post = (reqScript, next) => {
 
-	logger.info(" Posting new script in Service "+ reqScript);
+	//logger.info(" Posting new script in Service "+ reqScript);
 	let newScript;
-	if(reqScript.scriptText){
+
+	if( reqScript.scriptText != null && reqScript.scriptType=="OWNED"){
 		reqScript.scriptText=Utils.saveFile("script_"+reqScript.scriptName,reqScript.scriptText);
 		}
-	console.log("Pikaza path saved>>>>"+reqScript.scriptText)
 
 	async.series([
 	    function (cbl) {
@@ -160,8 +160,6 @@ module.exports.email = (scriptId, next) => {
 			next(new ScriptNotFoundError("No Product items found for given id "+scriptId));
 		}
 
-		console.log("Pikazza "+JSON.stringify(scripts) ); 
-		console.log("Pikazza "+JSON.stringify(scripts.scriptText) );
 		let options=[];
 		_.forEach(scripts.parameters, function(param,e){	
 			console.log("pika params "+ param.paramValue)
@@ -179,23 +177,137 @@ module.exports.email = (scriptId, next) => {
 	
 };
 
+module.exports.emailAll = (next) => {
+
+	Script.findAll({
+		 include: [Parameters]
+		})
+	.then(function(scriptsAll) {
+		logger.info("getting all Scripts from Service ")
+		_.forEach(scriptsAll, function(scripts,e){
+
+				let options=[];
+				_.forEach(scripts.parameters, function(param,e){	
+					console.log("pika params "+ param.paramValue)
+					console.log("pika e "+ e)
+					options.push("--"+param.paramName+"="+param.paramValue)
+				});
+				console.log("Pikazza options  "+options );
+
+				runScript(scripts.scriptText,options, function (err) {
+				    if (err) throw err;
+				    console.log('finished running '+ scripts.scriptText);
+				});
+
+		});
+
+	});
+	
+};
 
 
+module.exports.monthlyScripts = (time, next) => {
 
-/*module.exports.email = (scriptId, next) => {
+	Script.findAll({
+		 where: {
+			scriptSchuduledType: "MONTHLY",
+			scriptScheduledHour: time
+		},
+		include: [Parameters]
+		})
+	.then(function(scriptsAll) {
+		logger.info("getting all Scripts from Service ")
+		_.forEach(scriptsAll, function(scripts,e){
 
-runScript('./Scripts/script_second-test.js', function (err) {
-    if (err) throw err;
-    console.log('finished running some-script.js');
-});
+				let options=[];
+				_.forEach(scripts.parameters, function(param,e){	
+					console.log("pika params "+ param.paramValue)
+					console.log("pika e "+ e)
+					options.push("--"+param.paramName+"="+param.paramValue)
+				});
+				console.log("Pikazza options  "+options );
 
-};*/
+				runScript(scripts.scriptText,options, function (err) {
+				    if (err) throw err;
+				    console.log('finished running '+ scripts.scriptText);
+				});
+
+		});
+
+	});
+	
+};
+
+module.exports.weeklyScripts = (time, next) => {
+
+	Script.findAll({
+		 where: {
+			scriptSchuduledType: "WEEKLY",
+			scriptScheduledHour: time
+		},
+		include: [Parameters]
+		})
+	.then(function(scriptsAll) {
+		logger.info("getting all Scripts from Service ")
+		_.forEach(scriptsAll, function(scripts,e){
+
+				let options=[];
+				_.forEach(scripts.parameters, function(param,e){	
+					console.log("pika params "+ param.paramValue)
+					console.log("pika e "+ e)
+					options.push("--"+param.paramName+"="+param.paramValue)
+				});
+				console.log("Pikazza options  "+options );
+
+				runScript(scripts.scriptText,options, function (err) {
+				    if (err) throw err;
+				    console.log('finished running '+ scripts.scriptText);
+				});
+
+		});
+
+	});
+	
+};
+
+
+module.exports.dailyScripts = (time, next) => {
+
+	Script.findAll({
+		 where: {
+			scriptSchuduledType: "DAILY",
+			scriptScheduledHour: time
+		},
+		include: [Parameters]
+		})
+	.then(function(scriptsAll) {
+		logger.info("getting all Scripts from Service ")
+		_.forEach(scriptsAll, function(scripts,e){
+
+				let options=[];
+				_.forEach(scripts.parameters, function(param,e){	
+					console.log("pika params "+ param.paramValue)
+					console.log("pika e "+ e)
+					options.push("--"+param.paramName+"="+param.paramValue)
+				});
+				console.log("Pikazza options  "+options );
+
+				runScript(scripts.scriptText,options, function (err) {
+				    if (err) throw err;
+				    console.log('finished running '+ scripts.scriptText);
+				});
+
+		});
+
+	});
+	
+};
 
 
 function runScript(scriptPath, options,  callback) {
 
     // keep track of whether callback has been invoked to prevent multiple invocations
-var invoked = false;
+	var invoked = false;
 
 //let pika = JSON.stringify(zza);
 	var process = childProcess.fork(scriptPath, options );
