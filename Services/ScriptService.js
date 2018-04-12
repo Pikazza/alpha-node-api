@@ -146,36 +146,7 @@ module.exports.put = (scriptId, reqScript, next) => {
     );	
 };
 
-module.exports.email = (scriptId, next) => {
 
-	Script.findOne({
-		where: {
-			scriptId: scriptId
-		},
-		 include: [Parameters]
-	})
-	.then(function(scripts) {
-		logger.info("getting all Scripts from Service ")
-		if(scripts <= 0 ){
-			next(new ScriptNotFoundError("No Product items found for given id "+scriptId));
-		}
-
-		let options=[];
-		_.forEach(scripts.parameters, function(param,e){	
-			console.log("pika params "+ param.paramValue)
-			console.log("pika e "+ e)
-			options.push("--"+param.paramName+"="+param.paramValue)
-		});
-		console.log("Pikazza options  "+options );
-
-		runScript(scripts.scriptText,options, function (err) {
-		    if (err) throw err;
-		    console.log('finished running '+ scripts.scriptText);
-		});
-
-  	});
-	
-};
 
 module.exports.emailAll = (next) => {
 
@@ -239,7 +210,8 @@ module.exports.monthlyScripts = (time, next) => {
 };
 
 module.exports.weeklyScripts = (time, next) => {
-
+var date = new Date();
+console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
 	Script.findAll({
 		 where: {
 			scriptSchuduledType: "WEEKLY",
@@ -249,12 +221,10 @@ module.exports.weeklyScripts = (time, next) => {
 		})
 	.then(function(scriptsAll) {
 		logger.info("getting all Scripts from Service ")
-		_.forEach(scriptsAll, function(scripts,e){
+		async.each(scriptsAll, function(scripts,e){
 
 				let options=[];
-				_.forEach(scripts.parameters, function(param,e){	
-					console.log("pika params "+ param.paramValue)
-					console.log("pika e "+ e)
+				_.forEach(scripts.parameters, function(param,e){
 					options.push("--"+param.paramName+"="+param.paramValue)
 				});
 				console.log("Pikazza options  "+options );
@@ -262,7 +232,11 @@ module.exports.weeklyScripts = (time, next) => {
 				runScript(scripts.scriptText,options, function (err) {
 				    if (err) throw err;
 				    console.log('finished running '+ scripts.scriptText);
+				    var date = new Date();
+					console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+	
 				});
+
 
 		});
 
@@ -272,6 +246,8 @@ module.exports.weeklyScripts = (time, next) => {
 
 
 module.exports.dailyScripts = (time, next) => {
+var date = new Date();
+console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
 
 	Script.findAll({
 		 where: {
@@ -281,21 +257,22 @@ module.exports.dailyScripts = (time, next) => {
 		include: [Parameters]
 		})
 	.then(function(scriptsAll) {
-		logger.info("getting all Scripts from Service ")
 		_.forEach(scriptsAll, function(scripts,e){
 
 				let options=[];
-				_.forEach(scripts.parameters, function(param,e){	
-					console.log("pika params "+ param.paramValue)
-					console.log("pika e "+ e)
+				_.forEach(scripts.parameters, function(param,e){
 					options.push("--"+param.paramName+"="+param.paramValue)
 				});
 				console.log("Pikazza options  "+options );
 
+				
 				runScript(scripts.scriptText,options, function (err) {
 				    if (err) throw err;
+				    var date = new Date();
+					console.log("DAILY SERVICE ends at "+date.getMinutes()+" "+date.getSeconds()+" "+date.getMilliseconds())
 				    console.log('finished running '+ scripts.scriptText);
 				});
+					 
 
 		});
 
@@ -308,10 +285,7 @@ function runScript(scriptPath, options,  callback) {
 
     // keep track of whether callback has been invoked to prevent multiple invocations
 	var invoked = false;
-
-//let pika = JSON.stringify(zza);
 	var process = childProcess.fork(scriptPath, options );
-
 
     //var process = childProcess.fork(scriptPath, ['--FIRST='+5,'--SECOND='+7] );
 
@@ -321,6 +295,12 @@ function runScript(scriptPath, options,  callback) {
         invoked = true;
         callback(err);
     });
+    
+    process.on('uncaughtException', callback);
+
+
+    //process.setMaxListeners(0);
+    require('events').EventEmitter.prototype._maxListeners = 100;
 
     // execute the callback once the process has finished running
     process.on('exit', function (code) {
@@ -329,5 +309,81 @@ function runScript(scriptPath, options,  callback) {
         var err = code === 0 ? null : new Error('exit code ' + code);
         callback(err);
     });
+
+}
+
+
+module.exports.email = (scriptId, next) => {
+var date = new Date();
+console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+
+	Script.findOne({
+		where: {
+			scriptId: scriptId
+		},
+		 include: [Parameters]
+	})
+	.then(function(scripts) {
+		if(scripts <= 0 ){
+			next(new ScriptNotFoundError("No Product items found for given id "+scriptId));
+		}
+
+		let options=[];
+		_.forEach(scripts.parameters, function(param,e){
+			options.push("--"+param.paramName+"="+param.paramValue)
+		});
+		console.log("Pikazza options  "+options );
+
+		runScriptTest(scripts.scriptText,options, function (err) {
+			console.log("------------------");
+		    if (err) {throw err;}
+
+		    console.log('finished running '+ scripts.scriptText);
+		    var date = new Date();
+			console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+
+		});
+
+  	});
+	
+};
+
+function runScriptTest(scriptPath, options,  callback) {
+	console.log("Pikazza 0");
+    // keep track of whether callback has been invoked to prevent multiple invocations
+	var invoked = false;
+	var process = childProcess.fork(scriptPath, options );
+
+    //var process = childProcess.fork(scriptPath, ['--FIRST='+5,'--SECOND='+7] );
+
+    // listen for errors as they may prevent the exit event from firing
+    process.on('error', function (err) {
+    	console.log("Pikazza 1");
+        if (invoked){ 
+        	console.log("Pikazza 2");
+        	return; 
+        }
+        console.log("Pikazza 3");
+        invoked = true;
+        console.log("Pikazza 4 "+err);
+        callback(err);
+    });
+
+    // execute the callback once the process has finished running
+    process.on('exit', function (code) {
+        if (invoked) {
+        	console.log("Pikazza 5");
+        	return;
+        }
+        invoked = true;
+        console.log("Pikazza 6");
+        var err = code === 0 ? null : new Error('exit code ' + code);
+        console.log("Pikazza 7");
+        callback(err);
+    });
+    var date = new Date();
+	console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+
+
 
 }

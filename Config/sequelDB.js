@@ -1,7 +1,7 @@
 'use strict';
 
 const Sequelize = require('sequelize');
-import logger from '../Config/Logger';
+let logger =require('../Config/Logger');
 const Props = require('../Util/api-properties')
 
 const sequelize = new Sequelize(Props.db.database, Props.db.user, Props.db.password, {

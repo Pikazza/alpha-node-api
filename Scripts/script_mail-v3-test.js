@@ -25,9 +25,9 @@ function mailSender(ccMail,body) {
 
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
-            return console.log(error);
+            return console.log(error, body);
         }
-        console.log('Message %s sent: %s', info.messageId, info.response);
+        console.log('Message %s sent: %s', info.messageId, info.response, body);
     });
 }
 

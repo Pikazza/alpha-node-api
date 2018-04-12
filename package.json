@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jasmine",
-    "start": "nodemon --ignore './Scripts/' --exec babel-node -- ./server.js"
+    "start": "nodemon --ignore './Scripts/' --exec babel-node --prof server.js"
   },
   "author": "mbf",
   "license": "ISC",
@@ -25,8 +25,10 @@
     "node-cron": "^1.2.1",
     "node-gcm": "^0.14.6",
     "nodemailer": "^4.0.1",
+    "os": "^0.1.1",
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
+    "pm2": "^2.10.2",
     "sequelize": "^4.36.0",
     "swagger-jsdoc": "^1.9.4",
     "threadpool-js": "^0.5.0",

@@ -1,7 +1,7 @@
 'use strict';
 
 const { Pool, Client } = require('pg')
-import logger from '../Config/Logger';
+let logger =require('../Config/Logger');
 const Props = require('../Util/api-properties')
 
 const pool = new Pool({
