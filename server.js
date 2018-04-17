@@ -43,6 +43,7 @@ router.options('*', cors());
 
 require('./Routes/DashBoard')(router);
 require('./Routes/ScriptRoute')(router);
+require('./Routes/TemplateRoute')(router);
 require('./Exceptions/error-middleware')(router);
 
 
