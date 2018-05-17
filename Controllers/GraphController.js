@@ -4,15 +4,16 @@ const logger = require('../Config/Logger');
 const path=require("path");
 const ejs = require('ejs');
 const fs = require('fs');
-const scriptService= require('../Services/ScriptService');
+const graphService= require('../Services/GraphService');
 const Utils = require('../Util/mail-sender')
 var nodemailer = require('nodemailer');
 
 exports.getAll = (req, res, next) => {
 
-    logger.info("Getting All Scripts .. ");
-
-    scriptService.getAll(req.query.limit, req.query.page, function (err , result){
+    logger.info("Getting All Graphs .. ");
+    logger.info("Getting Graphs page limit: "+ req.query.limit);
+    logger.info("Getting Graphs page no: "+ req.query.page);
+    graphService.getAll(req.query.limit, req.query.page, function (err , result){
             if (err) {
                 next(err);
             } 
@@ -22,11 +23,11 @@ exports.getAll = (req, res, next) => {
         });
 };
 
-exports.getByScriptId = (req, res, next) => {
+exports.getByGraphId = (req, res, next) => {
 
-    logger.info("Getting Scripts by id "+ req.params.scriptId);
+    logger.info("Getting Graphs by id "+ req.params.graphId);
 
-	scriptService.getByScriptId(req.params.scriptId, function (err , result){
+	graphService.getByGraphId(req.params.graphId, function (err , result){
             if (err) {
                 next(err);
             } 
@@ -38,9 +39,9 @@ exports.getByScriptId = (req, res, next) => {
 
 exports.post = (req, res, next) => {
 
-    logger.info("Posting new Scripts "+ req.body)
+    logger.info("Posting new Graphs "+ req.body)
 
-    scriptService.post(req.body, function (err , result){
+    graphService.post(req.body, function (err , result){
             if (err) {
                 next(err);
             } 
@@ -52,9 +53,9 @@ exports.post = (req, res, next) => {
 
 exports.put = (req, res, next) => {
 
-    logger.info("updating new Scripts for the Id "+ req.params.scriptId)
+    logger.info("updating new Graphs for the Id "+ req.params.graphId)
 
-    scriptService.put(req.params.scriptId, req.body, function (err , result){
+    graphService.put(req.params.graphId, req.body, function (err , result){
             if (err) {
                 next(err);
             } 
@@ -64,11 +65,11 @@ exports.put = (req, res, next) => {
         });
 };
 
-exports.email = (req, res, next) => {
+exports.delete = (req, res, next) => {
 
-    logger.info(" Email service is has  been called "+req.params.scriptId)
+    logger.info(" deleting existing graph controller "+req.params.graphId)
 
-    scriptService.email(req.params.scriptId, function (err , result){
+    graphService.delete(req.params.graphId, function (err , result){
             if (err) {
                 next(err);
             } 
@@ -81,9 +82,9 @@ exports.email = (req, res, next) => {
 
 exports.emailAll = (req, res, next) => {
 
-    logger.info(" Email service is has  been called "+req.params.scriptId)
+    logger.info(" Email service is has  been called "+req.params.GraphId)
 
-    scriptService.emailAll( function (err , result){
+    graphService.emailAll( function (err , result){
             if (err) {
                 next(err);
             } 

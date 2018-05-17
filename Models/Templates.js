@@ -3,7 +3,7 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../Config/sequelDB')
 
-const Templates = sequelize.define('scripts', {
+const Templates = sequelize.define('templates', {
   templateId: {
     type: Sequelize.INTEGER ,
     unique: true,
@@ -27,7 +27,7 @@ const Templates = sequelize.define('scripts', {
 
 
 sequelize.sync().then(function() {
-    console.log('Templates Table created Successfully ');
+    console.log('________Templates Table created Successfully ');
   }).error(function(error) {
     console.log('Error while creating  Templates Table ', error);
   })

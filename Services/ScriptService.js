@@ -17,10 +17,13 @@ const Threads= require('webworker-threads');
 const childProcess = require('child_process');
 
 
-module.exports.getAll = (next) => {
-
-	Script.findAll({
-		 include: [Parameters]
+module.exports.getAll = (limit, page , next) => {
+	let offset = limit * (page);
+	Script.findAndCountAll({
+		 limit: limit,
+      	 offset: offset,
+      	 $sort: { graphId: 1 },
+      	 include: [Parameters]
 		})
 	.then(function(scripts) {
 		logger.info("getting all Scripts from Service ")
@@ -104,16 +107,24 @@ module.exports.put = (scriptId, reqScript, next) => {
         function (cbl) {
         	console.log("updating all the params");
         	    _.forEach(reqScript.parameters, function(param){
-					Parameters.update(param,
-						{
-					  		where: 
-					  		{ 
-					  			paramId: param.paramId
-					  		}
-					  	})
+					if(param.paramId){
+							Parameters.update(param,
+							{
+						  		where: 
+						  		{ 
+						  			paramId: param.paramId
+						  		}
+						  	})
+						  	.then(resParam => {
+							  console.log('-----------------------Existing Script Updated'+ JSON.stringify(resParam) );
+							});
+					}
+					else{
+						Parameters.create(param)
 					  	.then(resParam => {
-						  console.log('-----------------------Existing Script Updated'+ JSON.stringify(resParam) );
+						  console.log('-----------------------New Script Updated'+ JSON.stringify(resParam) );
 						});
+					}
 				});
 	        console.log("updating all the params completed");
 	        cbl();

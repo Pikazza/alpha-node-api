@@ -8,7 +8,7 @@ const fs = require('fs');
 exports.getDashBoard = (req, res, next) => {
 
 	logger.info("the current value of query param is "+ req.query.type)
-
+logger.info("the current value of query param is "+ req.query.getById)
 	logger.info("Getting into Dashboard Controller..."+ req.query.type);
 	//res.status(200).json("Pikazza");
 	if(req.query.type == "TYPE_1"){
@@ -21,11 +21,11 @@ exports.getDashBoard = (req, res, next) => {
     	let htmlContent = ejs.render(fs.readFileSync(path1, 'utf8'),{party: party});
     	res.end(htmlContent);
 	}else if(req.query.type == "TYPE_2"){
-			let party= {
+			let party= [{
 		name:'Sathya',
 		mail:'alpha@zza.com',
 		pass:'Sathya'
-	};
+	}];
 		let path2 = path.join(__dirname + '/../Public/Templates/type-2.html');
     	let htmlContent = ejs.render(fs.readFileSync(path2, 'utf8'),{party: party});
     	res.end(htmlContent);
@@ -35,6 +35,27 @@ exports.getDashBoard = (req, res, next) => {
 		let path3 = path.join(__dirname + '/../Public/Templates/type-3.html');
     	let htmlContent = ejs.render(fs.readFileSync(path3, 'utf8'),{party: party});
     	res.end(htmlContent);
+	}
+	else if(req.query.type == "TYPE_4"){
+		let party= [{
+		name:'Pikazza',
+		mail:'alpha@zza.com',
+		pass:'Pikazza'
+	},
+	{
+		name:'Sathya',
+		mail:'satya@zza.com',
+		pass:'Sathya'
+	}];
+	if(req.query.getById){
+		var elHtml = document.getElementById("pikazza").innerHTML;
+    	res.end(elHtml);
+	}
+		let path4 = path.join(__dirname + '/../Public/Templates/type-4.html');
+    	let htmlContent = ejs.render(fs.readFileSync(path4, 'utf8'),{party: party});
+    	res.end(htmlContent);
+
+    	
 	}
 	else{
 		res.sendFile(path.join(__dirname + '/../Public/Templates/index.html'));

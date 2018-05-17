@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "jasmine",
-    "start": "nodemon --ignore './Scripts/' --exec babel-node --prof server.js"
+    "start": "nodemon --ignore './Scripts/' --exec babel-node -- server.js"
   },
   "author": "mbf",
   "license": "ISC",

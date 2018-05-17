@@ -1,0 +1,132 @@
+<html>
+<head>
+    <title>Sample DashBoard</title>
+    <link href="https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/web-animations/2.3.1/web-animations.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/hammer.js/2.0.8/hammer.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/muuri/0.5.3/muuri.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Include Date Range Picker -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container text-right">
+            <!-- Button trigger modal -->
+            <button type="button" class="btn btn-light" data-toggle="modal" data-target="#widgetModal">
+                Add widget
+            </button>
+        </div>
+    </header>
+    <div class="container">
+        <div class="row justify-content-end range-hidden rangeWrapper">
+            <div class="col-4">
+                <div class="form-group row align-items-center">
+                    <div class="col-4 text-right">
+                        <label for="datarange" style="padding-top: 5px; font-size: 16px"><strong>Range : </strong></label>
+                    </div>
+                    <div class="col-8">
+                        <input type="text" class="form-control" id="datarange" name="daterange" placeholder="Choose date range">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row grid"></div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="widgetModal" tabindex="-1" role="dialog" aria-labelledby="widgetModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="column-count">
+                    <div class="popContainerWrapper">
+                        <div class="modal-header row">
+                            <h5 class="modal-title" id="widgetModalLabel">Widget</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="row mainPopupContainer">
+                            <div class="col-8">
+                                <div class="previewChartArea">
+                                    <canvas id="previewChart" width="300" height="300"></canvas>
+                                </div>
+                            </div>
+                            <form class="col-4">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="chooseChart">Choose type</label>
+                                    <select class="form-control" id="chooseChart">
+                                        <option selected="selected">bar</option>
+                                        <option>line</option>
+                                        <option>polarArea</option>
+                                        <option>radar</option>
+                                        <option>bubble</option>
+                                    </select>
+                                </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="appendData">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="updateWidgetModal" tabindex="-1" role="dialog" aria-labelledby="updateWidgetModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="column-count">
+                    <div class="popContainerWrapper">
+                        <div class="modal-header row">
+                            <h5 class="modal-title" id="updateWidgetModalLabel">Widget</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="row mainPopupContainer">
+                            <div class="col-8">
+                                <div class="previewChartArea">
+                                    <canvas id="updatePreviewChart" width="300" height="300"></canvas>
+                                </div>
+                            </div>
+                            <form class="col-4">
+                                <div class="form-group">
+                                    <label for="updateName">Name</label>
+                                    <input type="text" class="form-control" id="updateName" placeholder="Enter name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="updateChart">Choose type</label>
+                                    <select class="form-control" id="updateChart">
+                                        <option>bar</option>
+                                        <option>line</option>
+                                        <option>polarArea</option>
+                                        <option>radar</option>
+                                    </select>
+                                </div>
+                                <div class="text-right">
+                                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="updateWidget">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../controlls.js"></script>
+</body>
+</html>

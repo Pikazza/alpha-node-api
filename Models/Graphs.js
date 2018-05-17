@@ -3,18 +3,21 @@
 const Sequelize = require('sequelize');
 const sequelize = require('../Config/sequelDB')
 
-const Parameters = sequelize.define('parameters', {
-  paramId: {
+const Graphs = sequelize.define('graphs', {
+  graphId: {
     type: Sequelize.INTEGER ,
     unique: true,
     primaryKey: true,
     autoIncrement: true
   },
-  paramName: {
+  userId: {
     type: Sequelize.STRING
   },
-  paramValue: {
+  graphName: {
     type: Sequelize.STRING
+  },
+  graphType: {
+    type: Sequelize.TEXT
   },
   createdAt: {
     type: Sequelize.DATE
@@ -23,24 +26,26 @@ const Parameters = sequelize.define('parameters', {
     type: Sequelize.DATE,
     defaultValue: Sequelize.NOW
   },
-  paramType: {
+  graphCreatedBy: {
     type: Sequelize.STRING
   },
-  scriptId: {
-    type: Sequelize.INTEGER
+  graphUpdatedBy: {
+    type: Sequelize.STRING
   },
-  scriptVar: {
+  graphRow: {
+    type: Sequelize.STRING
+  },
+  graphColumn: {
     type: Sequelize.STRING
   }
 });
 
-
 sequelize.sync().then(function() {
-    console.log('__________Parameters Table created Successfully');
+    console.log('_________graphs Table created Successfully ');
   }).error(function(error) {
-    console.log(' Error while creating Parameters Table \n', error);
+    console.log('Error while creating  graphs Table ', error);
   })
-  
+
 module.exports = {
-    Parameters: Parameters
+    Graphs: Graphs
 };

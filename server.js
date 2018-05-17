@@ -22,7 +22,7 @@ let Props =require('./Util/api-properties');
 let fs=require('fs');
 let db=require('./Config/DBConfig');
 let seqdb=require('./Config/sequelDB');
-let notify=require('./Scheduler/Notifier');
+//let notify=require('./Scheduler/Notifier');
 
 const app = express();
 
@@ -44,6 +44,7 @@ router.options('*', cors());
 require('./Routes/DashBoard')(router);
 require('./Routes/ScriptRoute')(router);
 require('./Routes/TemplateRoute')(router);
+require('./Routes/GraphRoute')(router);
 require('./Exceptions/error-middleware')(router);
 
 

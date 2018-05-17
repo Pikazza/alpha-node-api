@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Sample DashBoard</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <div style="margin:100px;">
+    <nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="navbar-brand" href="/v1.0/dashboard">Express HTML</a>
+    <ul class="nav navbar-nav">
+      <li class="active">
+        <a href="/v1.0/dashboard">Home</a>
+      </li>
+      <li>
+        <a href="/v1.0/dashboard?type=TYPE_1">Sample 1</a>
+      </li>
+      <li>
+        <a href="/v1.0/dashboard?type=TYPE_2">Sample 2</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <div class="jumbotron"  style="padding:40px;">
+      <h1>Hello, Sample 1!</h1>
+      <p>This is a simple page 1 .</p>
+      <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+
+<table id="pikazza" cellpadding="0" cellspacing="0" border="0" align="center" style=" background:#eee; width:640px; font-family:Ariel, Calibri, Helvetica; font-size:14px; line-height:24px;">
+
+<% for(var i=0; i < party.length; i++) { %>
+    <tr>
+        <td style="background:#fff; color:#333; margin:0; padding:30px;">
+            <h2 style="font-size:18px; font-weight:700; margin:0; padding-bottom:5px;">Hi <%= party[i].name %>, </h2>
+            <p style="margin:0;"><storng style="font-weight: bold;"> Email :</storng> <%= party[i].mail %></p>
+            <p style="margin:0; padding-bottom:25px;"><storng style="font-weight: bold;"> Password :</storng> <%= party[i].pass %> </p>
+        </td>
+    </tr>
+    <% } %>
+
+</table>
+    </div>
+  </div>
+</body>
+</html>

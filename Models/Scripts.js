@@ -57,7 +57,7 @@ Parameters.belongsTo(Scripts, {
 });
 
 sequelize.sync().then(function() {
-    console.log('Scripts Table created Successfully ');
+    console.log('_________Scripts Table created Successfully ');
   }).error(function(error) {
     console.log('Error while creating  Scripts Table ', error);
   })
