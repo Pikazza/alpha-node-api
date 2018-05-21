@@ -13,11 +13,11 @@ module.exports = {
 		passWord:'H40@C#i!CuMl0P!K4ZzA9nIWBuzH40@C#i!'
 	},
 	logger:{
-		path:'/home/admin/haochii-log/'
+		path:'/home/prabakaran/alpha-log/'
 	},
 	mail:{
 		host:'smtp.gmail.com',
-		port:'465',	
+		port:'465',
 		senderName:'Pikazza',
 		senderMailId:'pikazzatestsp@gmail.com',
 		passWord:'Pikazza1'
