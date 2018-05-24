@@ -1,0 +1,171 @@
+body {
+    padding:0px;
+    font-family: 'Titillium Web', sans-serif;
+    font-size: 14px;
+    line-height: 1.1456;
+}
+
+.grid {
+    position: relative;
+}
+
+.item {
+    background-color: white;
+    display: block;
+    position: absolute;
+    height: 300px;
+    z-index: 1;
+}
+
+.chartArea {
+    padding: 0px 20px 20px;
+    border: 1px solid #f9f5f5;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.chartArea h6 {
+    margin-bottom: 0px;
+}
+
+.chartHeader {
+    background-color: #545151;
+    color: white;
+    padding: 10px 5px;
+    border-bottom: 1px solid #f9f5f5;
+    margin: 0px -20px 20px;
+}
+
+.chartHeader button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+}
+
+.item.muuri-item-dragging {
+    z-index: 3;
+}
+
+.item.muuri-item-releasing {
+    z-index: 2;
+}
+
+.item.muuri-item-hidden {
+    z-index: 0;
+}
+
+#popupContainer {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    z-index: 100;
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+}
+
+header {
+	background-color: #545151;
+    margin-bottom: 20px;
+    padding: 20px 0px;
+    border-bottom: 1px solid #f9f5f5;
+}
+.btn {
+	background-color: #545151;
+}
+.btn-light {
+	background-color: white;
+}
+.cancelBtn {
+	color: white;
+}
+button:focus {
+    outline: none;
+    box-shadow:none !important;
+}
+.hiddenDateField {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+.column-count {
+    padding-left: 0px;
+    padding-right: 0px;
+    text-align: center;
+}
+.modal-content {
+    background-color: transparent;
+    border:none;
+}
+.column-count > div {
+    background-color: white;
+    text-align: left;
+    display: inline-block;
+}
+.column-count form {
+    margin: 0px;
+}
+.form-group:last-child {
+    margin-bottom: 0px;
+}
+.column-count form label {
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.column-count .form-group {
+    width: 100%;
+}
+.modal-dialog {
+    max-width: initial;
+}
+.modal-header {
+    padding: 8px 15px;
+}
+.modal-footer {
+    padding: 15px;
+}
+.modal-header h5 {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.btn {
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.form-control {
+    font-size: 14px;
+}
+.modal-header .close {
+    padding: 5px;
+    margin: -10px -5px 0px;
+}
+.popContainerWrapper {
+	margin: 0 auto;
+	padding: 0 15px;
+	width: 900px;
+}
+.mainPopupContainer {
+	padding: 20px 0px;
+}
+.previewChartArea {
+	width: 300px;
+	height: 400px;
+	margin:0 auto;
+	padding: 50px 0px;
+}
+.rangeWrapper {
+    margin-bottom: 20px;
+}
+.range-hidden {
+    margin-bottom: 0px;
+    opacity: 0;
+    visibility: hidden;
+    height: 0px;
+    overflow: hidden;
+}

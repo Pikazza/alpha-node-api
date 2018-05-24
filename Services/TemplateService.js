@@ -12,7 +12,6 @@ const fs = require('fs');
 const nodemailer = require('nodemailer');
 const Props = require('../Util/api-properties')
 const _eval = require('eval');
-const Threads= require('webworker-threads');
 const childProcess = require('child_process');
 
 

@@ -3,7 +3,7 @@ module.exports = {
 		user: 'postgres',
 		host: 'localhost',
 		database: 'testdb',
-		password: 'postgres',
+		password: 'sathya2690',
 		port: 5432,
 		max: 10, // max number of clients in the pool
   		idleTimeoutMillis: 30000
@@ -13,7 +13,7 @@ module.exports = {
 		passWord:'H40@C#i!CuMl0P!K4ZzA9nIWBuzH40@C#i!'
 	},
 	logger:{
-		path:'/home/admin/haochii-log/'
+		path:'/Users/sathy/Desktop/'
 	},
 	mail:{
 		host:'smtp.gmail.com',

@@ -58,8 +58,7 @@ logger.info("the current value of query param is "+ req.query.getById)
     	
 	}
 	else{
-		res.sendFile(path.join(__dirname + '/../Public/Templates/index.html'));
+		res.sendFile(path.join(__dirname + '/../Public/Graph/templates.html'));
 		logger.info("Getting store products...");
-		
 	}
 };
