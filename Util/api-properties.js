@@ -17,7 +17,7 @@ module.exports = {
 	},
 	mail:{
 		host:'smtp.gmail.com',
-		port:'465',	
+		port:'465',
 		senderName:'Pikazza',
 		senderMailId:'pikazzatestsp@gmail.com',
 		passWord:'Pikazza1'

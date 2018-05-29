@@ -13,10 +13,25 @@ exports.getAll = (req, res, next) => {
     logger.info("Getting All Graphs .. ");
     logger.info("Getting Graphs page limit: "+ req.query.limit);
     logger.info("Getting Graphs page no: "+ req.query.page);
-    graphService.getAll(req.query.limit, req.query.page, function (err , result){
+    logger.info("Getting isGraphDataRequired : "+ req.query.isGraphDataRequired);
+    logger.info("Getting isGraphCodeRequired: "+ req.query.isGraphCodeRequired);
+    logger.info("Getting isGraphConfigRequired: "+ req.query.isGraphConfigRequired);
+    logger.info("Getting Graphs page no: "+ req.query.startDate);
+    logger.info("Getting Graphs page no: "+ req.query.endDate);
+    let request =
+    {
+      limit:req.query.limit,
+      page:req.query.page,
+      isGraphDataRequired:req.query.isGraphDataRequired,
+      isGraphCodeRequired: req.query.isGraphCodeRequired,
+      isGraphConfigRequired:req.query.isGraphConfigRequired,
+      startDate:req.query.startDate,
+      endDate:req.query.endDate
+    }
+    graphService.getAll(request, function (err , result){
             if (err) {
                 next(err);
-            } 
+            }
             else{
             res.status(200).json(result);
             }
@@ -30,7 +45,7 @@ exports.getByGraphId = (req, res, next) => {
 	graphService.getByGraphId(req.params.graphId, function (err , result){
             if (err) {
                 next(err);
-            } 
+            }
             else{
             res.status(200).json(result);
             }
@@ -44,7 +59,7 @@ exports.post = (req, res, next) => {
     graphService.post(req.body, function (err , result){
             if (err) {
                 next(err);
-            } 
+            }
             else{
             res.status(200).json(result);
             }
@@ -58,7 +73,7 @@ exports.put = (req, res, next) => {
     graphService.put(req.params.graphId, req.body, function (err , result){
             if (err) {
                 next(err);
-            } 
+            }
             else{
             res.status(200).json(result);
             }
@@ -72,7 +87,7 @@ exports.delete = (req, res, next) => {
     graphService.delete(req.params.graphId, function (err , result){
             if (err) {
                 next(err);
-            } 
+            }
             else{
             res.status(200).json(result);
             }
@@ -87,7 +102,7 @@ exports.emailAll = (req, res, next) => {
     graphService.emailAll( function (err , result){
             if (err) {
                 next(err);
-            } 
+            }
             else{
             res.status(200).json(result);
             }

@@ -6,20 +6,20 @@ const logger = require('../Config/Logger');
 const connection = require('../Config/DBConfig');
 const Utils = require('../Util/api-utils');
 const GraphNotFoundError= require('../Exceptions/graph-not-found-error');
-const Graph = require('../Models/Graphs').Graphs; 
+const Graph = require('../Models/Graphs').Graphs;
 const ejs = require('ejs');
 const fs = require('fs');
 const Props = require('../Util/api-properties')
 const path=require("path");
 
 
-module.exports.getAll = (limit, page ,next) => {
-	//let page = page;      // page number
-    //let pages = Math.ceil(data.count / limit);
-	let offset = limit * (page);
+module.exports.getAll = (request ,next) => {
+
+	console.log("REquest in Impl "+ JSON.stringify(request))
+	let offset = request.limit * (request.page);
 
 	Graph.findAndCountAll({
-	  limit: limit,
+	  limit: request.limit,
       offset: offset,
       $sort: { graphId: 1 }
 		})
@@ -27,18 +27,39 @@ module.exports.getAll = (limit, page ,next) => {
 		logger.info("getting all Graphs from Service ")
 		logger.info("count "+ Graphs.count)
 		let htmlContent;
-		if(page ==0 ){
+		let allItems;
+		if(request.isGraphCodeRequired === "true" ){
 			let graphPath = path.join(__dirname + '/../Public/Graph/templates.html');
     		htmlContent = fs.readFileSync(graphPath, 'utf8');
 		}
-		
+		if(request.isGraphDataRequired === "true"){
+				allItems = [
+				    {
+				        url:[10, 15, 22, 12],
+				        keyword:['a', 'b', 'c', 'd'],
+				        createdAt:"03/19/2018"
+				    },
+				    {
+				        url:[10, 19, 2, 12],
+				        keyword:['a', 'b', 'c', 'd'],
+				        createdAt:"03/21/2018"
+				    },
+				    {
+				        url:[10, 15, 22],
+				        keyword:['a', 'b', 'c', 'd'],
+				        createdAt:"03/22/2018"
+				    }
+				];
+		}
+
 		let output = {
-			graphCode:htmlContent, 
-			result: Graphs
+			graphCode:htmlContent,
+			graphData:allItems,
+			configData: Graphs
 		}
 	    next(null, output );
   	});
-	
+
 };
 
 module.exports.getByGraphId = (GraphId, next) => {
@@ -55,7 +76,7 @@ module.exports.getByGraphId = (GraphId, next) => {
 		}
 	    next(null, Graphs);
   	});
-	
+
 };
 
 module.exports.post = (reqGraph, next) => {
@@ -77,7 +98,7 @@ module.exports.post = (reqGraph, next) => {
                 next(null, newGraph);
             }
         }
-    );	
+    );
 };
 
 module.exports.put = (GraphId, reqGraph, next) => {
@@ -92,13 +113,13 @@ module.exports.put = (GraphId, reqGraph, next) => {
 
 	    	Graph.update(reqGraph,
 			  	{
-			  		where: 
-			  		{ 
-			  			graphId: GraphId 
+			  		where:
+			  		{
+			  			graphId: GraphId
 			  		},
 			  		returning: true,
 			  		plain: true
-			  		
+
 			  	})
 			  	.then(resGraph => {
 				  console.log('Existing Graph Updated'+ JSON.stringify(resGraph) );
@@ -113,7 +134,7 @@ module.exports.put = (GraphId, reqGraph, next) => {
                 next(null, newGraph);
             }
         }
-    );	
+    );
 };
 
 module.exports.delete = (GraphId, next) => {
@@ -126,9 +147,9 @@ module.exports.delete = (GraphId, next) => {
 
 	    	Graph.destroy(
 			  	{
-			  		where: 
-			  		{ 
-			  			graphId: GraphId 
+			  		where:
+			  		{
+			  			graphId: GraphId
 			  		}
 			  	})
 			  	.then(resGraph => {
@@ -144,7 +165,7 @@ module.exports.delete = (GraphId, next) => {
                 next(null, newGraph);
             }
         }
-    );	
+    );
 };
 
 
@@ -158,7 +179,7 @@ module.exports.emailAll = (next) => {
 		_.forEach(GraphsAll, function(Graphs,e){
 
 				let options=[];
-				_.forEach(Graphs.parameters, function(param,e){	
+				_.forEach(Graphs.parameters, function(param,e){
 					console.log("pika params "+ param.paramValue)
 					console.log("pika e "+ e)
 					options.push("--"+param.paramName+"="+param.paramValue)
@@ -173,7 +194,7 @@ module.exports.emailAll = (next) => {
 		});
 
 	});
-	
+
 };
 
 
@@ -191,7 +212,7 @@ module.exports.monthlyGraphs = (time, next) => {
 		_.forEach(GraphsAll, function(Graphs,e){
 
 				let options=[];
-				_.forEach(Graphs.parameters, function(param,e){	
+				_.forEach(Graphs.parameters, function(param,e){
 					console.log("pika params "+ param.paramValue)
 					console.log("pika e "+ e)
 					options.push("--"+param.paramName+"="+param.paramValue)
@@ -206,12 +227,12 @@ module.exports.monthlyGraphs = (time, next) => {
 		});
 
 	});
-	
+
 };
 
 module.exports.weeklyGraphs = (time, next) => {
 var date = new Date();
-console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 	Graph.findAll({
 		 where: {
 			GraphSchuduledType: "WEEKLY",
@@ -233,21 +254,21 @@ console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()
 				    if (err) throw err;
 				    console.log('finished running '+ Graphs.GraphText);
 				    var date = new Date();
-					console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
-	
+					console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
+
 				});
 
 
 		});
 
 	});
-	
+
 };
 
 
 module.exports.dailyGraphs = (time, next) => {
 var date = new Date();
-console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 	Graph.findAll({
 		 where: {
@@ -265,19 +286,19 @@ console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+
 				});
 				console.log("Pikazza options  "+options );
 
-				
+
 				runGraph(Graphs.GraphText,options, function (err) {
 				    if (err) throw err;
 				    var date = new Date();
 					console.log("DAILY SERVICE ends at "+date.getMinutes()+" "+date.getSeconds()+" "+date.getMilliseconds())
 				    console.log('finished running '+ Graphs.GraphText);
 				});
-					 
+
 
 		});
 
 	});
-	
+
 };
 
 
@@ -295,7 +316,7 @@ function runGraph(GraphPath, options,  callback) {
         invoked = true;
         callback(err);
     });
-    
+
     process.on('uncaughtException', callback);
 
 
@@ -315,7 +336,7 @@ function runGraph(GraphPath, options,  callback) {
 
 module.exports.email = (GraphId, next) => {
 var date = new Date();
-console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 	Graph.findOne({
 		where: {
@@ -340,12 +361,12 @@ console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinut
 
 		    console.log('finished running '+ Graphs.GraphText);
 		    var date = new Date();
-			console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+			console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 		});
 
   	});
-	
+
 };
 
 function runGraphTest(GraphPath, options,  callback) {
@@ -359,9 +380,9 @@ function runGraphTest(GraphPath, options,  callback) {
     // listen for errors as they may prevent the exit event from firing
     process.on('error', function (err) {
     	console.log("Pikazza 1");
-        if (invoked){ 
+        if (invoked){
         	console.log("Pikazza 2");
-        	return; 
+        	return;
         }
         console.log("Pikazza 3");
         invoked = true;
@@ -382,7 +403,7 @@ function runGraphTest(GraphPath, options,  callback) {
         callback(err);
     });
     var date = new Date();
-	console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+	console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 
 

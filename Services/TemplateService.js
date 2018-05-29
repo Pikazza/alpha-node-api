@@ -6,7 +6,7 @@ const logger = require('../Config/Logger');
 const connection = require('../Config/DBConfig');
 const Utils = require('../Util/api-utils');
 const ScriptNotFoundError= require('../Exceptions/script-not-found-error');
-const Templates = require('../Models/Templates').Templates; 
+const Templates = require('../Models/Templates').Templates;
 const ejs = require('ejs');
 const fs = require('fs');
 const nodemailer = require('nodemailer');
@@ -22,5 +22,5 @@ module.exports.getAll = (next) => {
 		logger.info("getting all Templates from Service ")
 	    next(null, templates);
   	});
-	
+
 };

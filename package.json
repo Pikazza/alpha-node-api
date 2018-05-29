@@ -29,6 +29,8 @@
     "pg": "^7.4.1",
     "pg-hstore": "^2.3.2",
     "pm2": "^2.10.2",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "sequelize": "^4.36.0",
     "swagger-jsdoc": "^1.9.4",
     "winston": "^2.3.1",

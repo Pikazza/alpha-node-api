@@ -6,8 +6,8 @@ const logger = require('../Config/Logger');
 const connection = require('../Config/DBConfig');
 const Utils = require('../Util/api-utils');
 const ScriptNotFoundError= require('../Exceptions/script-not-found-error');
-const Script = require('../Models/Scripts').Scripts; 
-const Parameters = require('../Models/Parameters').Parameters; 
+const Script = require('../Models/Scripts').Scripts;
+const Parameters = require('../Models/Parameters').Parameters;
 const ejs = require('ejs');
 const fs = require('fs');
 const nodemailer = require('nodemailer');
@@ -28,7 +28,7 @@ module.exports.getAll = (limit, page , next) => {
 		logger.info("getting all Scripts from Service ")
 	    next(null, scripts);
   	});
-	
+
 };
 
 module.exports.getByScriptId = (scriptId, next) => {
@@ -46,7 +46,7 @@ module.exports.getByScriptId = (scriptId, next) => {
 		}
 	    next(null, scripts);
   	});
-	
+
 };
 
 module.exports.post = (reqScript, next) => {
@@ -61,7 +61,7 @@ module.exports.post = (reqScript, next) => {
 	async.series([
 	    function (cbl) {
             Script.create(
-            	reqScript, 
+            	reqScript,
             	{
                		include: [Parameters]
             	})
@@ -79,7 +79,7 @@ module.exports.post = (reqScript, next) => {
                 next(null, newScript);
             }
         }
-    );	
+    );
 };
 
 module.exports.put = (scriptId, reqScript, next) => {
@@ -92,9 +92,9 @@ module.exports.put = (scriptId, reqScript, next) => {
 
 	    	Script.update(reqScript,
 			  	{
-			  		where: 
-			  		{ 
-			  			scriptId: scriptId 
+			  		where:
+			  		{
+			  			scriptId: scriptId
 			  		}
 			  	})
 			  	.then(resScript => {
@@ -109,8 +109,8 @@ module.exports.put = (scriptId, reqScript, next) => {
 					if(param.paramId){
 							Parameters.update(param,
 							{
-						  		where: 
-						  		{ 
+						  		where:
+						  		{
 						  			paramId: param.paramId
 						  		}
 						  	})
@@ -131,7 +131,7 @@ module.exports.put = (scriptId, reqScript, next) => {
     	function (cbl) {
     		logger.info("Pikazza put ");
 			Script.findOne({
-				where: 
+				where:
 				{
 					scriptId: scriptId
 				},
@@ -153,7 +153,7 @@ module.exports.put = (scriptId, reqScript, next) => {
                 next(null, newScript);
             }
         }
-    );	
+    );
 };
 
 
@@ -168,7 +168,7 @@ module.exports.emailAll = (next) => {
 		_.forEach(scriptsAll, function(scripts,e){
 
 				let options=[];
-				_.forEach(scripts.parameters, function(param,e){	
+				_.forEach(scripts.parameters, function(param,e){
 					console.log("pika params "+ param.paramValue)
 					console.log("pika e "+ e)
 					options.push("--"+param.paramName+"="+param.paramValue)
@@ -183,7 +183,7 @@ module.exports.emailAll = (next) => {
 		});
 
 	});
-	
+
 };
 
 
@@ -201,7 +201,7 @@ module.exports.monthlyScripts = (time, next) => {
 		_.forEach(scriptsAll, function(scripts,e){
 
 				let options=[];
-				_.forEach(scripts.parameters, function(param,e){	
+				_.forEach(scripts.parameters, function(param,e){
 					console.log("pika params "+ param.paramValue)
 					console.log("pika e "+ e)
 					options.push("--"+param.paramName+"="+param.paramValue)
@@ -216,12 +216,12 @@ module.exports.monthlyScripts = (time, next) => {
 		});
 
 	});
-	
+
 };
 
 module.exports.weeklyScripts = (time, next) => {
 var date = new Date();
-console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 	Script.findAll({
 		 where: {
 			scriptSchuduledType: "WEEKLY",
@@ -243,21 +243,21 @@ console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()
 				    if (err) throw err;
 				    console.log('finished running '+ scripts.scriptText);
 				    var date = new Date();
-					console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
-	
+					console.log("WEEKLY SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
+
 				});
 
 
 		});
 
 	});
-	
+
 };
 
 
 module.exports.dailyScripts = (time, next) => {
 var date = new Date();
-console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 	Script.findAll({
 		 where: {
@@ -275,19 +275,19 @@ console.log("DAILy SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+
 				});
 				console.log("Pikazza options  "+options );
 
-				
+
 				runScript(scripts.scriptText,options, function (err) {
 				    if (err) throw err;
 				    var date = new Date();
 					console.log("DAILY SERVICE ends at "+date.getMinutes()+" "+date.getSeconds()+" "+date.getMilliseconds())
 				    console.log('finished running '+ scripts.scriptText);
 				});
-					 
+
 
 		});
 
 	});
-	
+
 };
 
 
@@ -305,7 +305,7 @@ function runScript(scriptPath, options,  callback) {
         invoked = true;
         callback(err);
     });
-    
+
     process.on('uncaughtException', callback);
 
 
@@ -325,7 +325,7 @@ function runScript(scriptPath, options,  callback) {
 
 module.exports.email = (scriptId, next) => {
 var date = new Date();
-console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 	Script.findOne({
 		where: {
@@ -350,12 +350,12 @@ console.log("_____________________PikazzaEMAIL SERVICE starts at "+date.getMinut
 
 		    console.log('finished running '+ scripts.scriptText);
 		    var date = new Date();
-			console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+			console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 		});
 
   	});
-	
+
 };
 
 function runScriptTest(scriptPath, options,  callback) {
@@ -369,9 +369,9 @@ function runScriptTest(scriptPath, options,  callback) {
     // listen for errors as they may prevent the exit event from firing
     process.on('error', function (err) {
     	console.log("Pikazza 1");
-        if (invoked){ 
+        if (invoked){
         	console.log("Pikazza 2");
-        	return; 
+        	return;
         }
         console.log("Pikazza 3");
         invoked = true;
@@ -392,7 +392,7 @@ function runScriptTest(scriptPath, options,  callback) {
         callback(err);
     });
     var date = new Date();
-	console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());	
+	console.log("_____________________PikazzaEMAIL SERVICE ends at "+date.getMinutes()+" "+ date.getSeconds()+" "+date.getMilliseconds());
 
 
 
