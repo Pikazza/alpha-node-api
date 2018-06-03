@@ -73,3 +73,5 @@ router.use(express.static(__dirname+'/public'));
 process.on('uncaughtException', function(err) {
 logger.info( "['uncaughtException'] " + err.stack || err.message );
 });
+
+app.listen(8080, () => logger.info('server is listenming in port : 8080'));

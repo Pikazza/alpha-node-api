@@ -58,7 +58,7 @@ module.exports.post = (reqScript, next) => {
 		reqScript.scriptText=Utils.saveFile("script_"+reqScript.scriptName,reqScript.scriptText);
 		}
 	if(reqScript.scriptImage){
-					reqScript.scriptImage=Props.uploadImage("script_"+reqScript.scriptName,productReq.itemImage);
+					reqScript.scriptImage=Utils.uploadImage("script_"+reqScript.scriptName,reqScript.scriptImage);
 	}
 	async.series([
 	    function (cbl) {
@@ -89,7 +89,7 @@ module.exports.put = (scriptId, reqScript, next) => {
 	logger.info(" Posting new script in Service "+ scriptId);
 	let newScript;
 	if(reqScript.scriptImage){
-				reqScript.scriptImage=Props.uploadImage("product_"+productId,productReq.itemImage);
+				reqScript.scriptImage=Utils.uploadImage("script_"+scriptId,reqScript.scriptName);
 			}
 	async.series([
 	    function (cbl) {
