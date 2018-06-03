@@ -23,7 +23,7 @@ module.exports.uploadImage = (newFileName,  base64Data, next) => {
 module.exports.saveFile = (newFileName, script , next) => {
 
     console.log("Saving new files ..");
-    let path ="/home/admin/nodespace/alpha-node-api/Scripts/"+newFileName+".js";
+    let path =Props.imageRefPath.jsUploadPath+newFileName+".js";
     /*fs.writeFile(path, script, function(err) {
       if(err) {
           return console.log(err);
@@ -32,10 +32,11 @@ module.exports.saveFile = (newFileName, script , next) => {
           return path
   });*/
   fs.writeFileSync(path, script);
-  return path;
+  let path1 = Props.imageRefPath.jsHost+newFileName+".js";
+  return path1;
 };
 
-module.exports.encyptAuthToken = (authToken) => { 
+module.exports.encyptAuthToken = (authToken) => {
   var hmac = crypto.createHmac('sha256', salt);
     return hmac.update(authToken).digest('hex');
 }
@@ -53,7 +54,7 @@ module.exports.getValidStartDate = (date) => {
     return startDate=new Date();
   }
   else{
-    return startDate; 
+    return startDate;
   }
 };
 

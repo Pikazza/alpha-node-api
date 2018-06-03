@@ -57,7 +57,9 @@ module.exports.post = (reqScript, next) => {
 	if( reqScript.scriptText != null && reqScript.scriptType=="OWNED"){
 		reqScript.scriptText=Utils.saveFile("script_"+reqScript.scriptName,reqScript.scriptText);
 		}
-
+	if(reqScript.scriptImage){
+					reqScript.scriptImage=Props.uploadImage("script_"+reqScript.scriptName,productReq.itemImage);
+	}
 	async.series([
 	    function (cbl) {
             Script.create(
@@ -86,7 +88,9 @@ module.exports.put = (scriptId, reqScript, next) => {
 
 	logger.info(" Posting new script in Service "+ scriptId);
 	let newScript;
-
+	if(reqScript.scriptImage){
+				reqScript.scriptImage=Props.uploadImage("product_"+productId,productReq.itemImage);
+			}
 	async.series([
 	    function (cbl) {
 

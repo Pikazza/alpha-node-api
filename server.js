@@ -30,7 +30,7 @@ const router = express.Router();
 
 require('events').EventEmitter.prototype._maxListeners = 100;
 
-app.use(morgan(':remote-addr - :remote-user ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent', 
+app.use(morgan(':remote-addr - :remote-user ":method :url HTTP/:http-version" :status :res[content-length] ":referrer" ":user-agent',
 { stream: { write: message => logger.info(message.trim()) }}));
 app.use(router);
 
@@ -48,20 +48,28 @@ require('./Routes/GraphRoute')(router);
 require('./Exceptions/error-middleware')(router);
 
 
-/*let imgUploadingDir = Props.imageRefPath.uploadPath;
+let imgUploadingDir = Props.imageRefPath.uploadPath;
 let imgHostingDir = Props.imageRefPath.hostingPath;
 if (!fs.existsSync(imgHostingDir)) {
 	fs.mkdirSync(imgHostingDir);
 }
 if (!fs.existsSync(imgUploadingDir)) {
 	fs.mkdirSync(imgUploadingDir);
-}*/
-//router.use(express.static(imgHostingDir));
+}
+router.use(express.static(imgHostingDir));
+
+let jsUploadingDir = Props.imageRefPath.jsUploadPath;
+let jsHostingDir = Props.imageRefPath.jsHostingPath;
+if (!fs.existsSync(jsHostingDir)) {
+	fs.mkdirSync(jsHostingDir);
+}
+if (!fs.existsSync(jsUploadingDir)) {
+	fs.mkdirSync(jsUploadingDir);
+}
+router.use(express.static(jsHostingDir));
 
 router.use(express.static(__dirname+'/public'));
 
 process.on('uncaughtException', function(err) {
 logger.info( "['uncaughtException'] " + err.stack || err.message );
 });
-
-app.listen(8080, () => logger.info('Server is listening on port: 8080'));

@@ -2,7 +2,7 @@
 
 const Sequelize = require('sequelize');
 const sequelize = require('../Config/sequelDB')
-const Parameters = require('../Models/Parameters').Parameters; 
+const Parameters = require('../Models/Parameters').Parameters;
 
 const Scripts = sequelize.define('scripts', {
   scriptId: {
@@ -12,6 +12,12 @@ const Scripts = sequelize.define('scripts', {
     autoIncrement: true
   },
   scriptName: {
+    type: Sequelize.STRING
+  },
+  scriptDesc:{
+    type: Sequelize.STRING
+  },
+  scriptImage:{
     type: Sequelize.STRING
   },
   scriptText: {

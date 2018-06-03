@@ -21,5 +21,13 @@ module.exports = {
 		senderName:'Pikazza',
 		senderMailId:'pikazzatestsp@gmail.com',
 		passWord:'Pikazza1'
+	},
+	imageRefPath:{
+		uploadPath:'/home/prabakaran/alpha-images/images/',
+		hostingPath:'/home/prabakaran/alpha-images/',
+		host:'http://127.0.0.1:8080/images/',
+		jsUploadPath:'/home/prabakaran/nodespace/alpha-node-api/Scripts/',
+		jsHostingPath:'/home/prabakaran/nodespace/alpha-node-api/Scripts/',
+		jsHost:'http://127.0.0.1:8080/'
 	}
 };
