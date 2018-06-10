@@ -13,7 +13,7 @@ module.exports = {
 		passWord:'H40@C#i!CuMl0P!K4ZzA9nIWBuzH40@C#i!'
 	},
 	logger:{
-		path:'/Users/sathy/Desktop/'
+		path:'/home/prabakaran/log/'
 	},
 	mail:{
 		host:'smtp.gmail.com',
